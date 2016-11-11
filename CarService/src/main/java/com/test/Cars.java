@@ -16,7 +16,7 @@ public class Cars {
     public JsonObject greetings() {
         return Json.createObjectBuilder()
                 .add("timestamp", new Date().toString())
-                .add("people", Json.createArrayBuilder()
+                .add("cars", Json.createArrayBuilder()
                         .add(Json.createObjectBuilder().add("id", "1").add("brand", "Volvo").add("model", "V70").add("year", "2010").add("released", "2006"))
                         .add(Json.createObjectBuilder().add("id", "2").add("brand", "Volvo").add("model", "V90").add("year", "2011").add("released", "2016"))
                         .add(Json.createObjectBuilder().add("id", "3").add("brand", "Volvo").add("model", "XC70").add("year", "2012").add("released", "2007"))
