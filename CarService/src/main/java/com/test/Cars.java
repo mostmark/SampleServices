@@ -1,4 +1,4 @@
-package com.airhacks;
+package com.test;
 
 import javax.json.Json;
 import javax.json.JsonObject;
