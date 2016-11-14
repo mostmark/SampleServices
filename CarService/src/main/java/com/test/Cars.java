@@ -1,10 +1,13 @@
 package com.test;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.Date;
 import javax.json.Json;
 import javax.json.JsonObject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -13,9 +16,48 @@ public class Cars {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public JsonObject greetings() {
+    public JsonObject cars() {
         return Json.createObjectBuilder()
                 .add("timestamp", new Date().toString())
+                .add("hostname", getComputerName())
+                .build();
+    }
+
+    @GET
+    @Path("/v1")
+    @Produces(MediaType.APPLICATION_JSON)
+    public JsonObject getCarsV1() {
+        return Json.createObjectBuilder()
+                .add("timestamp", new Date().toString())
+                .add("hostname", getComputerName())
+                .add("cars", Json.createArrayBuilder()
+                        .add(Json.createObjectBuilder().add("id", "1").add("brand", "Volvo").add("model", "V70").add("year", "2010").add("released", "2006"))
+                        .add(Json.createObjectBuilder().add("id", "4").add("brand", "Volvo").add("model", "XC90").add("year", "2013").add("released", "2015")))
+                .build();
+    }
+    
+    @GET
+    @Path("/v1/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public JsonObject getCarV1(@PathParam("id") int id) {
+        return Json.createObjectBuilder()
+                .add("timestamp", new Date().toString())
+                .add("hostname", getComputerName())
+                .add("id", id)
+                .add("brand", "Volvo")
+                .add("model", "V70")
+                .add("year", "2010")
+                .add("released", "2006")
+                .build();
+    }
+
+    @GET
+    @Path("/v2")
+    @Produces(MediaType.APPLICATION_JSON)
+    public JsonObject getCarsV2() {
+        return Json.createObjectBuilder()
+                .add("timestamp", new Date().toString())
+                .add("hostname", getComputerName())
                 .add("cars", Json.createArrayBuilder()
                         .add(Json.createObjectBuilder().add("id", "1").add("brand", "Volvo").add("model", "V70").add("year", "2010").add("released", "2006"))
                         .add(Json.createObjectBuilder().add("id", "2").add("brand", "Volvo").add("model", "V90").add("year", "2011").add("released", "2016"))
@@ -23,5 +65,28 @@ public class Cars {
                         .add(Json.createObjectBuilder().add("id", "4").add("brand", "Volvo").add("model", "XC90").add("year", "2013").add("released", "2015")))
                 .build();
     }
+    
+    @GET
+    @Path("/v2/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public JsonObject getCarV2(@PathParam("id") int id) {
+        return Json.createObjectBuilder()
+                .add("timestamp", new Date().toString())
+                .add("hostname", getComputerName())
+                .add("id", id)
+                .add("brand", "Volvo")
+                .add("model", "V90")
+                .add("year", "2016")
+                .add("released", "2016")
+                .build();
+    }
 
+    private String getComputerName() {
+        try{
+            return InetAddress.getLocalHost().getHostName() + ":" + InetAddress.getLocalHost().getHostAddress();
+        }
+        catch(UnknownHostException e){
+            return "unknown";
+        }
+    }
 }
