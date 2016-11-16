@@ -19,7 +19,7 @@ public class Cars {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public JsonObject cars(@HeaderParam("user-agent") String userAgent, @HeaderParam("X-3scale-proxy-secret-token") String secretToken, @HeaderParam("Authorization") String authorization) {
+    public JsonObject cars(@HeaderParam("user-agent") String userAgent, @HeaderParam("X-3scale-proxy-secret-token") String secretToken, @HeaderParam("JWTAuthorization") String authorization) {
         
         if(userAgent == null)
             userAgent = "";
@@ -33,14 +33,14 @@ public class Cars {
                 .add("hostname", getComputerName())
                 .add("user-agent", userAgent)
                 .add("X-3scale-proxy-secret-token", secretToken)
-                .add("Authorization", authorization)
+                .add("JWTAuthorization", authorization)
                 .build();
     }
 
     @GET
     @Path("/v1")
     @Produces(MediaType.APPLICATION_JSON)
-    public JsonObject getCarsV1(@HeaderParam("user-agent") String userAgent, @HeaderParam("X-3scale-proxy-secret-token") String secretToken, @HeaderParam("Authorization") String authorization) {
+    public JsonObject getCarsV1(@HeaderParam("user-agent") String userAgent, @HeaderParam("X-3scale-proxy-secret-token") String secretToken, @HeaderParam("JWTAuthorization") String authorization) {
         
         if(userAgent == null)
             userAgent = "";
@@ -54,7 +54,7 @@ public class Cars {
                 .add("hostname", getComputerName())
                 .add("user-agent", userAgent)
                 .add("X-3scale-proxy-secret-token", secretToken)
-                .add("Authorization", authorization)
+                .add("JWTAuthorization", authorization)
                 .add("cars", Json.createArrayBuilder()
                         .add(Json.createObjectBuilder().add("id", "1").add("brand", "Volvo").add("model", "V70").add("year", "2010").add("released", "2006"))
                         .add(Json.createObjectBuilder().add("id", "4").add("brand", "Volvo").add("model", "XC90").add("year", "2013").add("released", "2015")))
@@ -64,7 +64,7 @@ public class Cars {
     @GET
     @Path("/v1/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public JsonObject getCarV1(@PathParam("id") int id, @HeaderParam("user-agent") String userAgent, @HeaderParam("X-3scale-proxy-secret-token") String secretToken, @HeaderParam("Authorization") String authorization) {
+    public JsonObject getCarV1(@PathParam("id") int id, @HeaderParam("user-agent") String userAgent, @HeaderParam("X-3scale-proxy-secret-token") String secretToken, @HeaderParam("JWTAuthorization") String authorization) {
         
         if(userAgent == null)
             userAgent = "";
@@ -78,7 +78,7 @@ public class Cars {
                 .add("hostname", getComputerName())
                 .add("user-agent", userAgent)
                 .add("X-3scale-proxy-secret-token", secretToken)
-                .add("Authorization", authorization)
+                .add("JWTAuthorization", authorization)
                 .add("id", id)
                 .add("brand", "Volvo")
                 .add("model", "V70")
@@ -90,7 +90,7 @@ public class Cars {
     @GET
     @Path("/v2")
     @Produces(MediaType.APPLICATION_JSON)
-    public JsonObject getCarsV2(@HeaderParam("user-agent") String userAgent, @HeaderParam("X-3scale-proxy-secret-token") String secretToken, @HeaderParam("Authorization") String authorization) {
+    public JsonObject getCarsV2(@HeaderParam("user-agent") String userAgent, @HeaderParam("X-3scale-proxy-secret-token") String secretToken, @HeaderParam("JWTAuthorization") String authorization) {
         
         if(userAgent == null)
             userAgent = "";
@@ -104,7 +104,7 @@ public class Cars {
                 .add("hostname", getComputerName())
                 .add("user-agent", userAgent)
                 .add("X-3scale-proxy-secret-token", secretToken)
-                .add("Authorization", authorization)
+                .add("JWTAuthorization", authorization)
                 .add("cars", Json.createArrayBuilder()
                         .add(Json.createObjectBuilder().add("id", "1").add("brand", "Volvo").add("model", "V70").add("year", "2010").add("released", "2006"))
                         .add(Json.createObjectBuilder().add("id", "2").add("brand", "Volvo").add("model", "V90").add("year", "2011").add("released", "2016"))
@@ -116,7 +116,7 @@ public class Cars {
     @GET
     @Path("/v2/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public JsonObject getCarV2(@PathParam("id") int id, @HeaderParam("user-agent") String userAgent, @HeaderParam("X-3scale-proxy-secret-token") String secretToken, @HeaderParam("Authorization") String authorization) {
+    public JsonObject getCarV2(@PathParam("id") int id, @HeaderParam("user-agent") String userAgent, @HeaderParam("X-3scale-proxy-secret-token") String secretToken, @HeaderParam("JWTAuthorization") String authorization) {
         
         if(userAgent == null)
             userAgent = "";
@@ -130,7 +130,7 @@ public class Cars {
                 .add("hostname", getComputerName())
                 .add("user-agent", userAgent)
                 .add("X-3scale-proxy-secret-token", secretToken)
-                .add("Authorization", authorization)
+                .add("JWTAuthorization", authorization)
                 .add("id", id)
                 .add("brand", "Volvo")
                 .add("model", "V90")
