@@ -17,7 +17,7 @@ public class People {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public JsonObject people(@HeaderParam("user-agent") String userAgent, @HeaderParam("X-3scale-proxy-secret-token") String secretToken, @HeaderParam("Authorization") String authorization) {
+    public JsonObject people(@HeaderParam("user-agent") String userAgent, @HeaderParam("X-3scale-proxy-secret-token") String secretToken, @HeaderParam("JWTAuthorization") String authorization) {
         
         if(userAgent == null)
             userAgent = "";
@@ -31,14 +31,14 @@ public class People {
                 .add("hostname", getComputerName())
                 .add("user-agent", userAgent)
                 .add("X-3scale-proxy-secret-token", secretToken)
-                .add("Authorization", authorization)
+                .add("JWTAuthorization", authorization)
                 .build();
     }
 
     @GET
     @Path("/v1")
     @Produces(MediaType.APPLICATION_JSON)
-    public JsonObject getPeopleV1(@HeaderParam("user-agent") String userAgent, @HeaderParam("X-3scale-proxy-secret-token") String secretToken, @HeaderParam("Authorization") String authorization) {
+    public JsonObject getPeopleV1(@HeaderParam("user-agent") String userAgent, @HeaderParam("X-3scale-proxy-secret-token") String secretToken, @HeaderParam("JWTAuthorization") String authorization) {
         
         if(userAgent == null)
             userAgent = "";
@@ -53,7 +53,7 @@ public class People {
                 .add("hostname", getComputerName())
                 .add("user-agent", userAgent)
                 .add("X-3scale-proxy-secret-token", secretToken)
-                .add("Authorization", authorization)
+                .add("JWTAuthorization", authorization)
                 .add("people", Json.createArrayBuilder()
                         .add(Json.createObjectBuilder().add("id", "1").add("name", "Greg").add("phone", "+123456789").add("email", "greg@test.com").add("country", "US"))
                         .add(Json.createObjectBuilder().add("id", "2").add("name", "Steve").add("phone", "+444567890").add("email", "steve@test.com").add("country", "UK"))
@@ -65,7 +65,7 @@ public class People {
     @GET
     @Path("/v1/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public JsonObject getPersonV1(@PathParam("id") int id, @HeaderParam("user-agent") String userAgent, @HeaderParam("X-3scale-proxy-secret-token") String secretToken, @HeaderParam("Authorization") String authorization) {
+    public JsonObject getPersonV1(@PathParam("id") int id, @HeaderParam("user-agent") String userAgent, @HeaderParam("X-3scale-proxy-secret-token") String secretToken, @HeaderParam("JWTAuthorization") String authorization) {
         
         if(userAgent == null)
             userAgent = "";
@@ -80,7 +80,7 @@ public class People {
                 .add("hostname", getComputerName())
                 .add("user-agent", userAgent)
                 .add("X-3scale-proxy-secret-token", secretToken)
-                .add("Authorization", authorization)
+                .add("JWTAuthorization", authorization)
                 .add("id", id).add("name", "Greg").add("phone", "+123456789").add("email", "greg@test.com").add("country", "US")
                 .build();
     }
@@ -88,7 +88,7 @@ public class People {
     @GET
     @Path("/v2")
     @Produces(MediaType.APPLICATION_JSON)
-    public JsonObject getPeopleV2(@HeaderParam("user-agent") String userAgent, @HeaderParam("X-3scale-proxy-secret-token") String secretToken, @HeaderParam("Authorization") String authorization) {
+    public JsonObject getPeopleV2(@HeaderParam("user-agent") String userAgent, @HeaderParam("X-3scale-proxy-secret-token") String secretToken, @HeaderParam("JWTAuthorization") String authorization) {
         
         if(userAgent == null)
             userAgent = "";
@@ -103,7 +103,7 @@ public class People {
                 .add("hostname", getComputerName())
                 .add("user-agent", userAgent)
                 .add("X-3scale-proxy-secret-token", secretToken)
-                .add("Authorization", authorization)
+                .add("JWTAuthorization", authorization)
                 .add("people", Json.createArrayBuilder()
                         .add(Json.createObjectBuilder().add("id", "1").add("name", "Bob").add("phone", "+198374548").add("email", "bob@test.com").add("country", "US"))
                         .add(Json.createObjectBuilder().add("id", "2").add("name", "Brad").add("phone", "+4487435897").add("email", "brad@test.com").add("country", "UK"))
@@ -119,7 +119,7 @@ public class People {
     @GET
     @Path("/v2/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public JsonObject getPersonV2(@PathParam("id") int id, @HeaderParam("user-agent") String userAgent, @HeaderParam("X-3scale-proxy-secret-token") String secretToken, @HeaderParam("Authorization") String authorization) {
+    public JsonObject getPersonV2(@PathParam("id") int id, @HeaderParam("user-agent") String userAgent, @HeaderParam("X-3scale-proxy-secret-token") String secretToken, @HeaderParam("JWTAuthorization") String authorization) {
         
         if(userAgent == null)
             userAgent = "";
@@ -134,7 +134,7 @@ public class People {
                 .add("hostname", getComputerName())
                 .add("user-agent", userAgent)
                 .add("X-3scale-proxy-secret-token", secretToken)
-                .add("Authorization", authorization)
+                .add("JWTAuthorization", authorization)
                 .add("id", id).add("name", "Eva").add("phone", "+4656789012").add("email", "eva@test.com").add("country", "SE")
                 .build();
     }
