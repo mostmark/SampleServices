@@ -17,9 +17,24 @@ public class Greetings {
     @Produces(MediaType.APPLICATION_JSON)
     public JsonObject sayHello(@PathParam("name") String name){
         
+        if(name == null || name.length() < 1){
+            name = "Stranger";
+        }
+        
         return Json.createObjectBuilder()
                 .add("timestamp", new Date().toString())
                 .add("message", "Hello there " + name + "!")
+                .build();
+    }
+    
+    @GET
+    @Path("/hello/")
+    @Produces(MediaType.APPLICATION_JSON)
+    public JsonObject sayHelloAnonymous(){
+        
+        return Json.createObjectBuilder()
+                .add("timestamp", new Date().toString())
+                .add("message", "Hello there!")
                 .build();
     }
     
@@ -28,9 +43,24 @@ public class Greetings {
     @Produces(MediaType.APPLICATION_JSON)
     public JsonObject sayGoodbye(@PathParam("name") String name){
         
+        if(name == null || name.length() < 1){
+            name = "Stranger";
+        }
+        
         return Json.createObjectBuilder()
                 .add("timestamp", new Date().toString())
                 .add("message", "Goodbye " + name + "!")
+                .build();
+    }
+    
+    @GET
+    @Path("/goodbye/")
+    @Produces(MediaType.APPLICATION_JSON)
+    public JsonObject sayGoodbyeAnonymous(){
+        
+        return Json.createObjectBuilder()
+                .add("timestamp", new Date().toString())
+                .add("message", "Goodbye!")
                 .build();
     }
 
