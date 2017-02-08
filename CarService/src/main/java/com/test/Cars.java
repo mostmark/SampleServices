@@ -57,6 +57,7 @@ public class Cars {
                 .add("JWTAuthorization", authorization)
                 .add("cars", Json.createArrayBuilder()
                         .add(Json.createObjectBuilder().add("id", "1").add("brand", "Volvo").add("model", "V70").add("year", "2010").add("released", "2006"))
+                        .add(Json.createObjectBuilder().add("id", "1").add("brand", "Auidi").add("model", "Super Model 3").add("year", "2017").add("released", "2017"))
                         .add(Json.createObjectBuilder().add("id", "4").add("brand", "Volvo").add("model", "XC90").add("year", "2013").add("released", "2015")))
                 .build();
     }
