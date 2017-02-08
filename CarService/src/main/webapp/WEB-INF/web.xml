@@ -9,10 +9,13 @@
         </session-timeout>
     </session-config>
     <!-- which resources should be protected -->
+    <!--
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>Secure</web-resource-name>
+            -->
             <!-- be specific about the urls and methods here -->
+            <!--
             <url-pattern>/resources/cars/*</url-pattern>
             <http-method>GET</http-method>
         </web-resource-collection>
@@ -21,6 +24,7 @@
             <role-name>USERS</role-name>
         </auth-constraint>
     </security-constraint>
+    -->
     <!-- which realm to use for basic auth -->
     <login-config>
         <auth-method>BASIC</auth-method>
