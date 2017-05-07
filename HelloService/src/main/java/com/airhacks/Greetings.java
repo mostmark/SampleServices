@@ -34,7 +34,7 @@ public class Greetings {
         
         return Json.createObjectBuilder()
                 .add("timestamp", new Date().toString())
-                .add("message", "Hello there!")
+                .add("message", "Hellooooo there!")
                 .build();
     }
     
