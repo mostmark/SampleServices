@@ -23,7 +23,7 @@ public class Ipas {
         return Json.createObjectBuilder()
                 .add("timestamp", new Date().toString())
                 .add("ipas", Json.createArrayBuilder()
-                        .add(Json.createObjectBuilder().add("id", "1").add("beer-name", "Ziiiiiiiiipfer").add("brewery", "Brauerei Zipf").add("type", "Maerzen").add("alcohol", "5.0% ABV").add("user-rating", "5.00").add("country", "AT"))
+                        .add(Json.createObjectBuilder().add("id", "1").add("beer-name", "Zipfer").add("brewery", "Brauerei Zipf").add("type", "Maerzen").add("alcohol", "5.0% ABV").add("user-rating", "5.00").add("country", "AT"))
                         .add(Json.createObjectBuilder().add("id", "2").add("beer-name", "Dubbel IPA").add("brewery", "Poppels Bryggeri").add("type", "British-American ALE").add("alcohol", "8.0% ABV").add("user-rating", "4.00").add("country", "SE"))
                         .add(Json.createObjectBuilder().add("id", "3").add("beer-name", "Lagunitas IPA").add("brewery", "Lagunitas Brewing Company").add("type", "British-American ALE").add("alcohol", "6.2% ABV").add("user-rating", "5.00").add("country", "US"))
                         .add(Json.createObjectBuilder().add("id", "4").add("beer-name", "Punk IPA").add("brewery", "Brewdog").add("type", "Maerzen").add("alcohol", "5.6% ABV").add("user-rating", "4.00").add("country", "UK")))
